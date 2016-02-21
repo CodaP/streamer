@@ -1,0 +1,37 @@
+$OPTIONS
+.TRUE.			; Compute fluxes
+.FALSE.			; Include thermal emission in band 106
+.TRUE.			; Compute cloud forcing
+2 2			; Number of streams, short and long
+0 0			; Number of legendre coeffs., method (NCOEF, IMTHD)
+.TRUE.			; include gaseous absorption?  (GASABS)
+.TRUE.			; Include Rayleigh scatter (shortwave)?
+1			; Surface albedo control (ALBTYPE)
+4			; Surface emissivity  (EMISSTYPE)
+{{std_prof}} .TRUE.		; Std profile; extend to space?
+2 1			; Aerosol model and profile
+1 1 1 1 4 {{icthk}} 3		; Height, temp, wv, ozone, cloud units
+4			; Output levels control
+.TRUE.			; Descriptive output desired? (next line is file name)
+{{ output_filename }}
+.FALSE.			; USEROUT
+<file name>
+<file name>		; WEIGHTFILE
+.FALSE.			; USERCLOUD
+<file name>
+<file name>		; BRDFFILE
+$SETDATA
+{{ rectitle }}
+{{year}} {{month}} {{day}} {{hour}} {{lat|default(0)}} {{lon|default(0)}} {{zen}}
+			; Viewing geometry
+1 1			; band numbers
+0.0 1 9 1.0		; surface type
+-999.0  1.0		; TSURF and EMISS
+{{nclouds}} {{ntype}} {{cldfrac}} {{cldtemp}}  {{cldtop}} {{cldthick}} {{cldtau}} {{nphases}} {{cldphase1}} {{cldrel}} {{cldwcl}}  ; cloud properties -- set first element to 1 to include cloud layer, 0 to exclude
+
+2 2 2 2 2 2 0 {{frwv}} {{fro3}} {{frrhhz}} {{frco2}} {{fro2}} {{frwv2}}   ; std profiles, scalings: wv, 03, rhhaze, co2,o2,wvcont
+
+{% for replace in replace_statements %}
+$replace bstart={{replace['bstart']}},bend={{replace['bend']}}
+
+{% endfor %}
