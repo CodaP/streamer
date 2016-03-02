@@ -108,7 +108,7 @@ def parse_output(output_file):
         contents = output_fp.read()
 
     for block in re.split('[+][+]+', contents):
-        match = re.search('.*?--+$(.*?)$^$.*?--+$(.*?)$^$', block, re.DOTALL | re.MULTILINE)
+        match = re.search('.*?--+$(.*?)$^$.*?(--+$.*?)?--+$(.*?)$^$', block, re.DOTALL | re.MULTILINE)
         if match:
             profile = pd.read_table(StringIO(match.group(1)),
                                     sep='\s+',
@@ -122,7 +122,7 @@ def parse_output(output_file):
                                            'o3',
                                            'aer'
                                            ])
-            radiance = pd.read_table(StringIO(match.group(2)),
+            radiance = pd.read_table(StringIO(match.group(3)),
                                      sep='\s+',
                                      header=None,
                                      names=['ind',
