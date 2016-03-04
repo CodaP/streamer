@@ -1,9 +1,8 @@
-\documentclass[10pt]{article}
+\documentclass[10pt,twocolumn]{article}
 
+\usepackage{graphicx}
 \usepackage{booktabs} % For \toprule, \midrule and \bottomrule
 \usepackage{siunitx} % Formats the units and values
-\usepackage{pgfplotstable} % Generates table from .csv
-
 % Setup siunitx:
 \sisetup{
   round-mode          = places, % Rounds numbers
@@ -12,60 +11,113 @@
 
 \begin{document}
 
-\begin{table}[h!]
-  \begin{center}
-    \caption{Tropical Shortwave Radiation}
-    \label{table1}
-    \pgfplotstabletypeset[
-      multicolumn names, % allows to have multicolumn names
-      col sep=comma, % the seperator in our .csv file
-      display columns/0/.style={
-		column name=$SW\uparrow$, % name of first column
-		column type={S},string type
-	  },  % use siunitx for formatting
-      display columns/1/.style={
-		column name=$SW\downarrow$,
-		column type={S},string type
-	  },
-	  display columns/2/.style={
-		column name=$Net$,
-		column type={S},string type
-	  },
-      every head row/.style={
-		before row={\toprule}, % have a rule at top
-		after row={\midrule} % rule under units
-	  },
-	  every last row/.style={after row=\bottomrule}, % rule at bottom
-    ]{csv/tropical_sw.csv} % filename/path to file
-  \end{center}
+\begin{figure*}[h]
+	\centering
+	\includegraphics[scale=.25]{figures/arctic_heating.eps}
+	\caption{(A)(B)(C)(D)(E)(F)}
+\end{figure*}
+
+
+\section{Basecase Tables}
+
+\begin{table}[h]
+	\centering
+	\caption{Tropical Shortwave Radiation}
+	\label{tab:tsr}
+	\begin{tabular}{lccc}
+		\toprule
+		\multicolumn{4}{c}{$\textbf{Tropical}$}\\
+		\midrule
+		& $F^\uparrow_{sw}$ & $F^\downarrow_{sw}$ & $F^\downarrow_{net}$\\
+		\midrule
+		\input{table_data/TropicalSW_.tex}
+		\bottomrule
+	\end{tabular}
 \end{table}
 
-\begin{table}[h!]
-  \begin{center}
-    \caption{Tropical Longwave Radiation}
-    \label{table2}
-    \pgfplotstabletypeset[
-      multicolumn names, % allows to have multicolumn names
-      col sep=comma, % the seperator in our .csv file
-      display columns/0/.style={
-		column name=$LW\uparrow$, % name of first column
-		column type={S},string type
-	  },  % use siunitx for formatting
-      display columns/1/.style={
-		column name=$LW\downarrow$,
-		column type={S},string type
-	  },
-	  display columns/2/.style={
-		column name=$Net$,
-		column type={S},string type
-	  },
-      every head row/.style={
-		before row={\toprule}, % have a rule at top
-		after row={\midrule} % rule under units
-	  },
-	  every last row/.style={after row=\bottomrule}, % rule at bottom
-    ]{csv/tropical_lw.csv} % filename/path to file
-  \end{center}
+fdsafdsafdsafds fdsa fdsa fdsasdfds fdsa fdas fd safdsa
+
+\begin{table}[h]
+	\centering
+	\caption{Tropical Longwave Radiation}
+	\label{tab:tlr}
+	\begin{tabular}{lccc}
+		\toprule
+		\multicolumn{4}{c}{$\textbf{Tropical}$}\\
+		\midrule
+		& $F^\uparrow_{lw}$ & $F^\downarrow_{lw}$ & $F^\downarrow_{net}$\\
+		\midrule
+		\input{table_data/TropicalLW_.tex}
+		\bottomrule
+	\end{tabular}
+	
 \end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Tropical LW+SW Radiation}
+	\label{tab:tcr}
+	\begin{tabular}{lccc}
+		\toprule
+		\multicolumn{4}{c}{$\textbf{Tropical}$}\\
+		\midrule
+		& $F^\uparrow$ & $F^\downarrow$ & $F^\downarrow_{net}$\\
+		\midrule
+		\input{table_data/TropicalCOMBINED_.tex}
+		\bottomrule
+	\end{tabular}
+	
+\end{table}
+
+
+\begin{table}[h]
+	\centering
+	\caption{Arctic Shortwave Radiation}
+	\label{tab:asr}
+	\begin{tabular}{lccc}
+		\toprule
+		\multicolumn{4}{c}{$\textbf{Arctic}$}\\
+		\midrule
+		& $F^\uparrow_{sw}$ & $F^\downarrow_{sw}$ & $F^\downarrow_{net}$\\
+		\midrule
+		\input{table_data/ArcticSW_.tex}
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+	\centering
+	\caption{Arctic Longwave Radiation}
+	\label{tab:alr}
+	\begin{tabular}{lccc}
+		\toprule
+		\multicolumn{4}{c}{$\textbf{Arctic}$}\\
+		\midrule
+		& $F^\uparrow_{lw}$ & $F^\downarrow_{lw}$ & $F^\downarrow_{net}$\\
+		\midrule
+		\input{table_data/ArcticLW_.tex}
+		\bottomrule
+	\end{tabular}
+	
+\end{table}
+
+\begin{table}[h]
+	\centering
+	\caption{Arctic LW+SW Radiation}
+	\label{tab:acr}
+	\begin{tabular}{lccc}
+		\toprule
+		\multicolumn{4}{c}{$\textbf{Arctic}$}\\
+		\midrule
+		& $F^\uparrow$ & $F^\downarrow$ & $F^\downarrow_{net}$\\
+		\midrule
+		\input{table_data/ArcticCOMBINED_.tex}
+		\bottomrule
+	\end{tabular}
+	
+\end{table}
+
+
 
 \end{document}
