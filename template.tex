@@ -21,6 +21,10 @@
 % TWO-COLUMN JOURNAL PAGE LAYOUT---FOR AUTHOR USE ONLY
 \documentclass[twocol]{ametsoc}
 
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{gensymb}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% To be entered only if twocol option is used
 
@@ -90,6 +94,8 @@
 %\extraauthor{}
 %\extraaffil{}
 
+\newcommand{\FU}{Wm\textsuperscript{-2}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ABSTRACT
 %
@@ -116,15 +122,164 @@
 %% the higher level heading, use the star form: 
 %%
 \section{Introduction}
-Streamer is a forward radiative-transfer model, designed to input atmospheric profile information and output radiances. Any of the seven standard atmospheric profiles can be modified to accommodate deviations in the concentrations of water vapor, oxygen, carbon dioxide, and ozone \citep{Key1998443}.
+Streamer is a forward radiative-transfer model (RTM), designed to input atmospheric profile information and output radiances. Any of the seven standard atmospheric profiles can be modified to accommodate deviations in the concentrations of water vapor, oxygen, carbon dioxide, and ozone. With this flexibility, Streamer can be a powerful tool for studying the radiative forcing effects of these variables independently of one another. Likewise, climate predictions rely on knowledge on the global and local radiation balance and can be improved with a computational model. In our experiments we will focus on water vapor, ozone, and carbon dioxide \citep{Key:1998}.
+
+Radiative forcing due to atmospheric constituent gases is easily computed because the absorption profiles and concentrations of these gases are well understood and simple to add to the RTM. Nevertheless, the effects of these gases are relevant to better understanding challenges like anthropogenic climate change and ozone depletion. Similarly, the radiative forcing of clouds can be researched through Streamer to help answer questions like the effect of man-made cirrus clouds on diurnal temperature range. We will limit our research to a couple cloud experiments, though much more is left to explore in the number of clouds, optical depth, phase, altitude, etc.
 \section{Methods}
+Streamer operates on a single text input file containing the parameters needed to run. Noteable settings include selection of spectral bands, atmospheric profile, solar zenith angle, constituent gas fractions, and cloud parameters. Experiments will be performed by adjusting these values individually and examining the simulation output. The output will typically contain flux densities for a configurable band at each of 25 heights. We will be most concerned with flux densities at the 100 km top-of-atmosphere and the surface. It is possible to compute spectral flux densities at each level by iterating flux densities over all bands and dividing by the bandwidth to approximate spectral flux. We will also divide total flux densities into two bands: longwave and shortwave. 
+
+There are two baseline atmospheric profiles: arctic and tropical. Both profiles contain no clouds and rely on an oblique solar angle to result in comparable shortwave and longwave fluxes. The solar zenith angle is 71\degree{} in the tropics and 84\degree{} in the arctic.
+
+Fluxes will be computed for each baseline case. For the first experiment, water vapor concentrations will be increased by 10\% everywhere. Next, carbon dioxide concentrations will be doubled to determine the radiative forcing from emissions. Then, ozone concentrations will be reduced by 50\% to simulate ozone depletion. Finally, two experiments will be conducted by adding clouds to the radiative transfer model. One cloud will be a water-phase cloud located at 1 km height and with an optical depth of 10. The other cloud will have the same optical depth, but be ice-phase at 10 km height.
 
 \section{Results}
+
+\subsection*{Baseline Tables}
+
+It is clear from \autoref{tab:tsr} and \autoref{tab:asr} that much more shortwave radiation reaches the surface in the tropical model compared to the arctic model. Though both the arctic and tropical models show the surfaces to both have around 25\% albedo, overall albedo looking down from the top-of-atmosphere is significantly higher in the arctic, nearly 40\%. The tropical overall albedo is 28\%, not much greater than the surface albedo. The oblique solar zenith angle in the arctic model parameters is likely the cause and adjusting the arctic solar zenith did reduce albedo to equal the tropical albedo. In addition the 13 \degree{} decrease in solar elevation causes the normal flux to reduce 68\%.
+
+In the arctic, the shortwave flux absorbed at the surface is about equal to the emitted longwave flux. This indicates that the surface is likely at thermodynamic equilibrium and will not experience heating or cooling from radiative transfer. If Stefan-Boltzmann’s law is applied, the arctic surface has a brightness temperature of about -31℃, in agreement with typical arctic surface temperatures. However, the tropical shortwave flux exceeds the losses from longwave emission, suggesting that the surface is heating. Again using Stefan-Boltzmann’s law, the surface brightness temperature is about 20 \degree{C}, a reasonable temperature for a tropical environment.
+
+\begin{table}[h]
+    \centering
+    \caption{Tropical Shortwave Radiation}
+    \label{tab:tsr}
+    \begin{tabular}{lccc}
+        \toprule
+        \multicolumn{4}{c}{$\textbf{Tropical}$}\\
+        \midrule
+        & $F^\uparrow_{sw}$ & $F^\downarrow_{sw}$ & $F^\downarrow_{net}$\\
+        \midrule
+        \input{table_data/TropicalSW_.tex}
+        \bottomrule
+    \end{tabular}
+\end{table}
+\begin{table}[h]
+    \centering
+    \caption{Tropical Longwave Radiation}
+    \label{tab:tlr}
+    \begin{tabular}{lccc}
+        \toprule
+        \multicolumn{4}{c}{$\textbf{Tropical}$}\\
+        \midrule
+        & $F^\uparrow_{lw}$ & $F^\downarrow_{lw}$ & $F^\downarrow_{net}$\\
+        \midrule
+        \input{table_data/TropicalLW_.tex}
+        \bottomrule
+    \end{tabular}
+
+\end{table}
+\begin{table}[h]
+    \centering
+    \caption{Tropical LW+SW Radiation}
+    \label{tab:tcr}
+    \begin{tabular}{lccc}
+        \toprule
+        \multicolumn{4}{c}{$\textbf{Tropical}$}\\
+        \midrule
+        & $F^\uparrow$ & $F^\downarrow$ & $F^\downarrow_{net}$\\
+        \midrule
+        \input{table_data/TropicalCOMBINED_.tex}
+        \bottomrule
+    \end{tabular}
+
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Arctic Shortwave Radiation}
+    \label{tab:asr}
+    \begin{tabular}{lccc}
+        \toprule
+        \multicolumn{4}{c}{$\textbf{Arctic}$}\\
+        \midrule
+        & $F^\uparrow_{sw}$ & $F^\downarrow_{sw}$ & $F^\downarrow_{net}$\\
+        \midrule
+        \input{table_data/ArcticSW_.tex}
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Arctic Longwave Radiation}
+    \label{tab:alr}
+    \begin{tabular}{lccc}
+        \toprule
+        \multicolumn{4}{c}{$\textbf{Arctic}$}\\
+        \midrule
+        & $F^\uparrow_{lw}$ & $F^\downarrow_{lw}$ & $F^\downarrow_{net}$\\
+        \midrule
+        \input{table_data/ArcticLW_.tex}
+        \bottomrule
+    \end{tabular}
+
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Arctic LW+SW Radiation}
+    \label{tab:acr}
+    \begin{tabular}{lccc}
+        \toprule
+        \multicolumn{4}{c}{$\textbf{Arctic}$}\\
+        \midrule
+        & $F^\uparrow$ & $F^\downarrow$ & $F^\downarrow_{net}$\\
+        \midrule
+        \input{table_data/ArcticCOMBINED_.tex}
+        \bottomrule
+    \end{tabular}
+
+\end{table}
+
+\subsection*{Radiative Forcing}
+\subsubsection{10\% increase in water vapor}
+The small increase in water vapor did not seem to have much effect on overall radiation balance or atmospheric heating rates. The main difference from the baseline can be seen in \autoref{fig:arc_flux}(B). The increased concentration of water vapor increases the optical depth in its absorption bands, and by Kirchoff’s law the emissivity increases identically. As a result, the longwave ($20\mu m$) being seen has higher contributions from the warm atmosphere as the concentration of water vapor increases.
+
+\subsubsection{200\% increase in CO2}
+Again there doesn’t seem to be much immediate effect on the radiation balance in either location compared to clouds. The net increase in flux is 1 \FU~in the arctic and 2.5 \FU~in the tropics. A typical climate sensitivity to radiative forcing from carbon dioxide is 0.8 K/(\FU) when feedback systems are included. Without feedback systems, doubling carbon dioxide has calculated to result in a 3.7 \FU~radiative forcing, within range of our finding \citep{rahmstorf:2008}.
+Obviously, the increased carbon dioxide causes radiative forcing in the absorption bands of carbon dioxide. From \autoref{fig:arc_flux}(C) and \autoref{fig:trop_flux}(C) it appears that these bands lie at about $15\mu m$.
+
+\subsubsection{50\% decrease in ozone}
+After reducing ozone concentrations by 50\% we can see the expected response in the shortwave. Ozone in the upper atmosphere absorbs high-energy ultraviolet radiation, so it follows that reducing the amount of ozone would allow more ultraviolet radiation to reach the surface. Indeed we see an fivefold increase in UVB ($.289\mu m$) radiance at the tropical surface, which would be quite catastrophic for biological health. The arctic model has such an extreme solar angle that anything greater than 40\% ozone effectively extinguishes all UVB radiation before it reaches the surface. Additionally, visible light levels also increase at the surface, translating to a marginal increase in absorbed shortwave radiation. In the long wave regime there is a noticeable increase in upwelling radiation around $10\mu m$ at the TOA and a corresponding small decrease in downwelling radiance at the surface. This can be explained by the more transparent atmosphere in these channels. From the surface you can see through to space and at the TOA you can see the warmer ground.
+
+\subsubsection{1 km water cloud}
+Introducing a low cloud results in an increased albedo and a barrier to longwave radiative transfer. In the shortwave regime there is a large increase in upwelling radiance at the top-of-atmosphere and an identical decrease in downwelling shortwave radiance at the surface. If the increase in upwelling shortwave at the TOA was less than the decrease in shortwave at the surface then it could be inferred that the cloud was absorbing. In this case the cloud does not seem to be a strong absorber and probably exhibits a high single-scatter albedo. Overall, the addition of the low cloud increases the albedo by 150\% and the shape of the upwelling spectrum matches that of the solar radiation. Therefore it is likely that the cloud has a high, uniform reflectivity for most of the shortwave.
+
+These shortwave effects are shared by both climates, but the reactions differ with longwave forcing. In the tropics, we see an increase in downwelling longwave radiation at the surface and a decrease in the upwelling at the top-of-atmosphere. From this it can be supposed that the cloud almost perfectly absorbs thermal radiation. At the top-of-atmosphere, rather than thermal emission being transmitted from the surface, it is emitted from the slightly cooler cloud. At the surface, received thermal emission increased because the nearby warm cloud dominates emission once left to constituent gases. In contrast, the arctic top-of-atmosphere experiences an increase in longwave flux, indicating that the cloud is warmer than the surface. This could be true given that the downwelling longwave flux is greater than the emitted flux from the surface.
+
+\subsubsection{10 km ice cloud}
+The effects of adding an ice cloud at 10 km on albedo is largely the same as adding the water cloud at 1 km. Top-of-atmosphere albedo is increased by a little more with the ice cloud, probably due to the removal of 9 km of slightly absorbing atmosphere. Albedo is now 70\% in the arctic and 63\% in the tropics. The absorption of shortwave by constituent gases is greater in the tropics than the arctic because the irradiance is greater in the tropics. The differences in the longwave fluxes are more pronounced. Whereas the low cloud resulted in change in radiation balance, retaining 42-114 \FU~more flux, the opposing effects of reflecting and insulating are more matched when the cloud is at 10 km.  This is because the cloud is much colder at the higher altitude. Contributions to the surface and TOA longwave are diminished according to Stefan-Boltzmann's law; emission is very sensitive to temperature change. $\frac{\delta F}{\delta T} = 4.6~W m^{-2}K^{-1}$. The combined effect was a decrease in 19 \FU~in the tropics and an increase of 8 \FU~in the arctic.
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/arctic_heating.eps}
+    \caption{(A)(B)(C)(D)(E)(F)}
+    \label{fig:arc_heat}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/tropical_heating.eps}
+    \caption{(A)(B)(C)(D)(E)(F)}
+    \label{fig:trop_heat}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/arctic_flux.pdf}
+    \caption{(A)(B)(C)(D)(E)(F)}
+    \label{fig:arc_flux}
+\end{figure*}
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/tropical_flux.pdf}
+    \caption{(A)(B)(C)(D)(E)(F)}
+    \label{fig:trop_flux}
+\end{figure*}
+
 \section{Conclusions}
-\begin{itemize}
-\item Plane-parallel approximation
-\item Refraction
-\end{itemize}
 
 \section{References}
 
