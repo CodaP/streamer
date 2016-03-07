@@ -246,7 +246,7 @@ After reducing ozone concentrations by 50\% we can see the expected response in 
 \subsubsection{1 km water cloud}
 Introducing a low cloud results in an increased albedo and a barrier to longwave radiative transfer. In the shortwave regime there is a large increase in upwelling radiance at the top-of-atmosphere and an identical decrease in downwelling shortwave radiance at the surface. If the increase in upwelling shortwave at the TOA was less than the decrease in shortwave at the surface then it could be inferred that the cloud was absorbing. In this case the cloud does not seem to be a strong absorber and probably exhibits a high single-scatter albedo. Overall, the addition of the low cloud increases the albedo by 150\% and the shape of the upwelling spectrum matches that of the solar radiation. Therefore it is likely that the cloud has a high, uniform reflectivity for most of the shortwave wavelengths.
 
-These shortwave effects are shared by both climates, but the reactions differ with longwave forcing. In the tropics, we see an increase in downwelling longwave radiation at the surface and a decrease in the upwelling at the top-of-atmosphere. From this it can be supposed that the cloud almost perfectly absorbs thermal radiation. At the top-of-atmosphere, rather than thermal emission being transmitted from the surface, it is emitted from the slightly cooler cloud. At the surface, received thermal emission increased because the nearby warm cloud dominates emission once left to constituent gases. In contrast, the Arctic top-of-atmosphere experiences an increase in longwave flux, indicating that the cloud is warmer than the surface. This could be true given that the downwelling longwave flux is greater than the emitted flux from the surface.
+These shortwave effects are shared by both climates, but the reactions differ with longwave forcing. In the tropics, we see an increase in downwelling longwave radiation at the surface and a decrease in the upwelling at the top-of-atmosphere. From this it can be supposed that the cloud almost perfectly absorbs thermal radiation. At the top-of-atmosphere, rather than thermal emission being transmitted from the surface, it is emitted from the slightly cooler cloud. At the surface, received thermal emission increased because the nearby warm cloud dominates emission once left to constituent gases. In contrast, the Arctic top-of-atmosphere experiences an increase in longwave flux, indicating that the cloud is warmer than the surface. This could be true given that the downwelling longwave flux is greater than the emitted flux from the surface. But, heating rates (shown in \autoref{fig:arc_heat}(E)) do not indicate increased heating directly above the cloud. A higher vertical resolution would be helpful to deduce exactly what is occurring here.
 
 \subsubsection{10 km ice cloud}
 The effects of adding an ice cloud at 10 km on albedo is largely the same as adding the water cloud at 1 km. Top-of-atmosphere albedo is increased by a little more with the ice cloud, probably due to the removal of 9 km of slightly absorbing atmosphere. Albedo is now 70\% in the Arctic and 63\% in the tropics. The absorption of shortwave by constituent gases is greater in the tropics than the Arctic because the irradiance is greater in the tropics, as can be comparing \autoref{fig:trop_heat}(A) and \autoref{fig:arc_heat}(A). The differences in the longwave fluxes are more pronounced. Whereas the low cloud resulted in change in radiation balance, retaining 42-114 \FU~more flux, the opposing effects of reflecting and insulating are more matched when the cloud is at 10 km.  This is because the cloud is much colder at the higher altitude. Contributions to the surface and TOA longwave are diminished according to Stefan-Boltzmann's law; emission is very sensitive to temperature change. $\frac{\delta F}{\delta T} = 4.6~W m^{-2}K^{-1}$. The combined effect was a decrease in 19 \FU~in of net flux the tropics, and an increase of 8 \FU~in the Arctic. These values are significantly less than what was seen with the low cloud, but it is easier to see the heating effect in \autoref{fig:arc_heat}(F) and \autoref{fig:trop_heat}(F).
@@ -254,28 +254,56 @@ The effects of adding an ice cloud at 10 km on albedo is largely the same as add
 \begin{figure*}[h]
     \centering
     \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/arctic_heating.eps}
-    \caption{(A)(B)(C)(D)(E)(F)}
+    \caption{
+    \emph{(A)} The heating rates for the baseline Arctic model parameters at each of the 25 altitude levels. The rates are divided into shortwave, longwave, and net components.
+    \emph{(B)} Here is the difference in heating rates between the baseline case and a simulation of a 10\% increase in water vapor concentrations everywhere. The effect is limited because water vapor is mostly located in the troposphere where the absorption effect is saturated.
+    \emph{(C)} The heating rates for CO\textsubscript{2} are effected by doubling concentration because carbon dioxide is well-mixed and absorption falls off with pressure. Like water vapor, CO\textsubscript{2} absorption is saturated in the troposphere, but in the upper-atmosphere its partial pressure drops and optical depth decreases steadily. This demonstrates how the CO\textsubscript{2} can cause global warming while water vapor does not have the same effect. 
+    \emph{(D)} By decreasing ozone concentration by 50\% the heating from shortwave radiation has diminished in the upper-atmosphere and it cools. Conditions at the surface and troposphere remain the same because most radiation is still overwhelmingly absorbed due to the low solar elevation.
+    \emph{(E)} Here the low cloud blocks thermal radiation from the surface from reaching above the cloud and reduces longwave heating.
+    \emph{(F)} The effect from an ice cloud with the same optical depth is an increase in longwave heating below the cloud. The heating is partially countered by a dimming of shortwave below the cloud.}
     \label{fig:arc_heat}
 \end{figure*}
 
 \begin{figure*}[h]
     \centering
     \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/tropical_heating.eps}
-    \caption{(A)(B)(C)(D)(E)(F)}
+        \caption{
+    \emph{(A)} The heating rates for the baseline Tropical model parameters at each of the 25 altitude levels. The rates are divided into shortwave, longwave, and net components.
+    \emph{(B)} Here is the difference in heating rates between the baseline case and a simulation of a 10\% increase in water vapor concentrations everywhere. The effect is limited because water vapor is mostly located in the troposphere where the absorption effect is saturated.
+    \emph{(C)} The heating rates for CO\textsubscript{2} are effected by doubling concentration because carbon dioxide is well-mixed and absorption falls off with pressure. Like water vapor, CO\textsubscript{2} absorption is saturated in the troposphere, but in the upper-atmosphere its partial pressure drops and optical depth decreases steadily. This demonstrates how the CO\textsubscript{2} can cause global warming while water vapor does not have the same effect. 
+    \emph{(D)} By decreasing ozone concentration by 50\% the heating from shortwave radiation has diminished in the upper-atmosphere and it cools.
+    \emph{(E)} Here the low cloud blocks thermal radiation from the surface from reaching above the cloud and reduces longwave heating above the cloud and increases heating underneath.
+    \emph{(F)} The effect from an ice cloud with the same optical depth is an increase in longwave heating below the cloud. The heating is partially countered by a dimming of shortwave below the cloud. Directly above the cloud, heating is reduced because less thermal flux is being emitted from the cooler cloud compared with that coming from the baseline surface.}
     \label{fig:trop_heat}
 \end{figure*}
 
 \begin{figure*}[h]
     \centering
     \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/arctic_flux.pdf}
-    \caption{(A)(B)(C)(D)(E)(F)}
+    \caption{
+    \emph{(A)} The baseline Arctic model parameters produce these spectral fluxes.
+    Net fluxes are calculated by subtracting upwelling radiance from downwelling radiance.
+    \emph{(B)} The difference between a simulation of 110\% water vapor concentration and the baseline. Positive values for surface longwave flux indicate an increase in these radiances correlating with a forced increase in water vapor concentration. They are limited to the unsaturated absorption bands of water vapor.
+    \emph{(C)} The negative values show a decrease in top-of-atmosphere (TOA) upwelling longwave flux, concentrated in the CO\textsubscript{2} absorption bands, when carbon dioxide levels are doubled.
+    \emph{(D)} If ozone is halved, increases are seen in surface shortwave impingement. There is also an increase in upwelling flux at the TOA in ozone's longwave absorption band.
+    \emph{(E)} The addition of a water cloud at 1 km with significant optical depth reflects light away from the surface and back to the TOA. This is manifested by the reduction in downwelling shortwave radiance at the surface and increase in reflected shortwave at the TOA. The thermal flux detected at the surface is now supplied by a cloud much warmer than the baseline background. Similarly, the thermal flux detected at the TOA increases because it is now produced by a warmer object than the surface.
+    \emph{(F)} If the cloud is moved to 10 km the temperature of the cloud decreases and the effects on thermal emission at the surface are weakened. The increase in thermal IR at the TOA has been reversed and upwelling flux has decreased because cloud is cooler than the baseline surface.
+    }
     \label{fig:arc_flux}
 \end{figure*}
 
 \begin{figure*}[h]
     \centering
     \includegraphics[width=\linewidth, clip, trim=3cm 0cm 3cm 0cm]{figures/tropical_flux.pdf}
-    \caption{(A)(B)(C)(D)(E)(F)}
+    \caption{
+    \emph{(A)} The baseline tropical model parameters produce these spectral fluxes.
+    Net fluxes are calculated by subtracting upwelling radiance from downwelling radiance.
+    \emph{(B)} The difference between a simulation of 110\% water vapor concentration and the baseline. Positive values for surface longwave flux indicate an increase in these radiances correlating with a forced increase in water vapor concentration. They are limited to the unsaturated absorption bands of water vapor.
+    \emph{(C)} The negative values show a decrease in TOA upwelling longwave flux, concentrated in the CO\textsubscript{2} absorption bands, when carbon dioxide levels are doubled.
+    \emph{(D)} If ozone is halved, increases are seen in surface shortwave impingement. There is also an increase in upwelling flux at the TOA in ozone's longwave absorption band.
+    \emph{(E)} The addition of a water cloud at 1 km with significant optical depth reflects light away from the surface and back to the TOA. This is manifested by the reduction in downwelling shortwave radiance at the surface and increase in reflected shortwave at the TOA. The thermal flux detected at the surface is now supplied by a cloud much warmer than the baseline background. Similarly, the thermal flux detected at the TOA decreases because it is now produced by a cooler object than the surface.
+    \emph{(F)} If the cloud is moved to 10 km the temperature of the cloud decreases and the effects on thermal emission at the surface are weakened, but the effects on the TOA have strengthened. A large amount of thermal flux normally escaping into space is being blocked by the cloud.
+    }
     \label{fig:trop_flux}
 \end{figure*}
 
