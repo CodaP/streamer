@@ -105,7 +105,7 @@
 % For BAMS authors only: If your article requires a Capsule Summary, please place the capsule text at the end of your abstract
 % and identify it as the capsule. Example: This is the end of the abstract. (Capsule Summary) This is the capsule summary. 
 
-\abstract{Enter the text of your abstract here.Enter the text of your abstract here.Enter the text of your abstract here.Enter the text of your abstract here.Enter the text of your abstract here.Enter the text of your abstract here.Enter the text of your abstract here.Enter the text of your abstract here.}
+\abstract{Using the Streamer radiative-transfer model we were able to simulate radiative fluxes in a 25 level atmosphere for 129 spectral bands spanning 300 nm up to 100 um. Two climates were selected for testing: a tropical and an Arctic. A baseline radiation balance was established with the two standard profiles. Then, five experiments were conducted on each of the climates, permuting the concentrations of water vapor, carbon dioxide, ozone, and adding two types of clouds. Increasing the water vapor fraction did not result in any significant radiative forcing. After doubling CO2 concentration, there was a small warming effect on the total radiation balance. The radiative forcing was found to agree with predictions from other literature. The effect of ozone depletion was a dramatic increase the amount of UVB radiation impinging the surface. Experiments with adding clouds resulted in major differences in net radiation balance from the baseline and a dependency on cloud height was established.}
 
 \begin{document}
 
@@ -311,8 +311,24 @@ The effects of adding an ice cloud at 10 km on albedo is largely the same as add
 \end{figure*}
 
 \section{Conclusions}
-
-\section{References}
+By running simulations using Streamer the characteristic radiative forcing for many atmospheric parameters could be determined.
+The radiative forcing from doubling CO\textsubscript{2} was able to be calculated and the results was plausible.
+The effects of clouds on radiation balance could be quantified and a dependence of surface flux on cloud height was ascertained.
+\par There is some potential for inaccuracy when using Streamer.
+For example, in the baseline cases chosen for atmospheric measurement the solar elevation angle is very low for the tropical model and extremely low in the Arctic model.
+In the user guide, Streamer warns against using solar zenith angles greater than 70 degrees, a limit exceeded in both cases.
+The source of errors at such angles arise because Streamer does not simulate spherical geometry or refraction, phenomena only significant at grazing angles of incidence.
+Another shortfall is the assumption of a plane-parallel atmosphere, which is often a useful and valid simplification.
+But, at low angles the amount of atmosphere traversed horizontally by an incident ray makes it unlikely to be laterally homogeneous.
+\par Several additional experiments that would be interesting investigate carbon dioxide forcing.
+Adding clouds to the model before determining radiative forcing might change results and would be necessary to accurately model the real world.
+It would also be interesting to run the Streamer model many times, cycling throughout the day.
+One use would be to calculate the average energy difference accumulated over the course of the day. This could add insight to the forcing effects of carbon dioxide.
+Another improvement would be to simulate heating and cooling.
+At each layer the excess radiative flux could be applied to the atmospheric profile and fed back into the model.
+The results might be more realistic for determining the climate sensitivity if read after reaching equilibrium.
+\clearpage
+%\section{References}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ACKNOWLEDGMENTS
