@@ -234,11 +234,14 @@ In the Arctic, the shortwave flux absorbed at the surface is about equal to the 
 
 \subsection*{Radiative Forcing}
 \subsubsection{10\% increase in water vapor}
-The small increase in water vapor did not seem to have much effect on overall radiation balance or atmospheric heating rates. The main difference from the baseline can be seen in \autoref{fig:arc_flux}(B). The increased concentration of water vapor increases the optical depth in its absorption bands, and by Kirchoff’s law the emissivity increases identically. As a result, the longwave ($20\mu m$) being seen has higher contributions from the warm atmosphere as the concentration of water vapor increases.
+The small increase in water vapor did not seem to have much effect on overall radiation balance or atmospheric heating rates.
+The main difference from the baseline can be seen in \autoref{fig:arc_flux}(B) and \autoref{fig:trop_flux}(B).
+Water vapor absorbs so strongly at some wavelengths that radiative transfer is effectively null. Increasing water vapor concentration may increase optical depth, but the depth is already so large that the difference in transmittance is negligible. The effect is saturated and even large increases in concentration will have little effect. In water vapor's strongest absorption bands above $20\mu m$ we see an increase in surface downwelling flux.
+But, the effect is negligible compared to other experiments and the heatings rates shown in \autoref{fig:arc_heat}(B) and \autoref{fig:trop_heat}(B) don't seem to indicate any heating.
 
 \subsubsection{200\% increase in CO2}
 Again, there doesn't seem to be much immediate effect on the radiation balance in either location compared to clouds. The net increase in flux is 1 \FU~in the Arctic and 2.5 \FU~in the tropics. A typical climate sensitivity to radiative forcing from carbon dioxide is 0.8 K/(\FU) when feedback systems are included. Without feedback systems, doubling carbon dioxide has calculated to result in a 3.7 \FU~radiative forcing, within range of our finding \citep{rahmstorf:2008}.
-Obviously, the increased carbon dioxide causes radiative forcing in the absorption bands of carbon dioxide. From \autoref{fig:arc_flux}(C) and \autoref{fig:trop_flux}(C) it appears that these bands lie at about $15\mu m$.
+Obviously, the increased carbon dioxide causes radiative forcing in the absorption bands of carbon dioxide. From \autoref{fig:arc_flux}(C) and \autoref{fig:trop_flux}(C) it appears that these bands lie at about $15\mu m$. The top-of-atmosphere experiences a net increase in upwelling flux in center of the band, but it is flanked on either spectral side by an increase in net upwelling flux. Typically, carbon dioxide absorbs very strongly at $15\mu m$, and there the effect of increasing concentration is saturated. At the TOA emission in these bands is dominated by CO\textsubscript{2} in the stratosphere (apparent from \autoref{fig:arc_heat}(C) and \autoref{fig:trop_heat}(C)), where temperature increases with altitude. It is possible that increasing CO\textsubscript{2} concentration in the saturated region simply raises the level of peak emission in the stratosphere, therefore increasing emission. In the unsaturated edged of the absorbing band, surface emissions are being attenuated by the larger optical path. Ultimately, the dominant effect is the absorption of surface longwave flux and the heating rates of layers above saturation are diminished.
 
 \subsubsection{50\% decrease in ozone}
 After reducing ozone concentrations by 50\% we can see the expected response in the shortwave. Ozone in the upper atmosphere absorbs high-energy ultraviolet radiation, so it follows that reducing the amount of ozone would allow more ultraviolet radiation to reach the surface. Indeed we see an fivefold increase in UVB ($.289\mu m$) radiance at the tropical surface, which would be quite catastrophic for biological health. The Arctic model has such an extreme solar angle a ozone fraction greater than 40\% effectively extinguishes all UVB radiation before it can reach the surface. Additionally, visible light levels also increase at the surface, translating to a marginal increase in absorbed shortwave radiation. In the longwave regime there is a noticeable increase in upwelling radiation around $10\mu m$ at the TOA and a corresponding small decrease in downwelling radiance at the surface. This can be explained by the more transparent atmosphere in these channels. From the surface you can see through to space and at the TOA you can see the warmer ground.
@@ -283,7 +286,7 @@ The effects of adding an ice cloud at 10 km on albedo is largely the same as add
     \caption{
     \emph{(A)} The baseline Arctic model parameters produce these spectral fluxes.
     Net fluxes are calculated by subtracting upwelling radiance from downwelling radiance.
-    \emph{(B)} The difference between a simulation of 110\% water vapor concentration and the baseline. Positive values for surface longwave flux indicate an increase in these radiances correlating with a forced increase in water vapor concentration. They are limited to the unsaturated absorption bands of water vapor.
+    \emph{(B)} The difference between a simulation of 110\% water vapor concentration and the baseline. Positive values for surface longwave flux indicate an increase in these radiances correlating with a forced increase in water vapor concentration. They occur in saturated and unsaturated absorption bands of water vapor.
     \emph{(C)} The negative values show a decrease in top-of-atmosphere (TOA) upwelling longwave flux, concentrated in the CO\textsubscript{2} absorption bands, when carbon dioxide levels are doubled.
     \emph{(D)} If ozone is halved, increases are seen in surface shortwave impingement. There is also an increase in upwelling flux at the TOA in ozone's longwave absorption band.
     \emph{(E)} The addition of a water cloud at 1 km with significant optical depth reflects light away from the surface and back to the TOA. This is manifested by the reduction in downwelling shortwave radiance at the surface and increase in reflected shortwave at the TOA. The thermal flux detected at the surface is now supplied by a cloud much warmer than the baseline background. Similarly, the thermal flux detected at the TOA increases because it is now produced by a warmer object than the surface.
@@ -298,7 +301,7 @@ The effects of adding an ice cloud at 10 km on albedo is largely the same as add
     \caption{
     \emph{(A)} The baseline tropical model parameters produce these spectral fluxes.
     Net fluxes are calculated by subtracting upwelling radiance from downwelling radiance.
-    \emph{(B)} The difference between a simulation of 110\% water vapor concentration and the baseline. Positive values for surface longwave flux indicate an increase in these radiances correlating with a forced increase in water vapor concentration. They are limited to the unsaturated absorption bands of water vapor.
+    \emph{(B)} The difference between a simulation of 110\% water vapor concentration and the baseline. Positive values for surface longwave flux indicate an increase in these radiances correlating with a forced increase in water vapor concentration. They occur in saturated and unsaturated absorption bands of water vapor.
     \emph{(C)} The negative values show a decrease in TOA upwelling longwave flux, concentrated in the CO\textsubscript{2} absorption bands, when carbon dioxide levels are doubled.
     \emph{(D)} If ozone is halved, increases are seen in surface shortwave impingement. There is also an increase in upwelling flux at the TOA in ozone's longwave absorption band.
     \emph{(E)} The addition of a water cloud at 1 km with significant optical depth reflects light away from the surface and back to the TOA. This is manifested by the reduction in downwelling shortwave radiance at the surface and increase in reflected shortwave at the TOA. The thermal flux detected at the surface is now supplied by a cloud much warmer than the baseline background. Similarly, the thermal flux detected at the TOA decreases because it is now produced by a cooler object than the surface.
@@ -315,8 +318,8 @@ The effects of adding an ice cloud at 10 km on albedo is largely the same as add
 % ACKNOWLEDGMENTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\acknowledgments
-Start acknowledgments here.
+%\acknowledgments
+%Start acknowledgments here.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % APPENDIXES
